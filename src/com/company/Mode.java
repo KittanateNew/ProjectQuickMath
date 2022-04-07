@@ -1,6 +1,7 @@
 package com.company;
 
 public abstract class Mode {
+    private String[] OperatorArray = {"+","-","*","/"};
     private String operator;
     private int num1;
     private int num2;
