@@ -11,11 +11,11 @@ public class Question {
     }
 
     public void setAnswer(int n1, String operator, int n2){
-        switch (operator){
-            case "+": answer = n1 + n2; break;
-            case "-": answer = n1 - n2; break;
-            case "*": answer = n1 * n2; break;
-            case "/": answer = n1 / n2; break;
+        switch (operator) {
+            case "+" -> answer = n1 + n2;
+            case "-" -> answer = n1 - n2;
+            case "*" -> answer = n1 * n2;
+            case "/" -> answer = n1 / n2;
         }
     }
 
