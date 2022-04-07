@@ -32,7 +32,7 @@ public class Question {
     }
 
     public void addChoice(){
-
+        //ไม่แน่ใจ
     }
 
     public Boolean checkAnswer(String response){
@@ -43,9 +43,9 @@ public class Question {
     public void skip(){
         if (skipCount > 0){
             skipCount--;
-            score--;
             //ให้เปลี่ยนข้อ
         } else {
+            score--;
             //เปลี่ยนข้อ
         }
     }
