@@ -1,13 +1,18 @@
 package com.company;
 
+import com.company.mode.Mode;
+
 public class Question {
     private static int skipCount = 3;
     private static int score = 0;
     private int answer;
     private String quiz;
 
-    public Question(int n1, String operator, int n2){
-        setAnswer(n1, operator, n2);
+    public Question(Mode mode){
+        mode.setOperator();
+        mode.randomNum();
+        setQuiz(mode.getNum1(), mode.getOperator(), mode.getNum2());
+        setAnswer(mode.getNum1(), mode.getOperator(), mode.getNum2());
     }
 
     public void setAnswer(int n1, String operator, int n2){

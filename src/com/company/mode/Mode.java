@@ -1,4 +1,4 @@
-package com.company;
+package com.company.mode;
 
 public abstract class Mode {
     protected String[] OperatorArray = {"+","-","*","/"};
