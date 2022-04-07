@@ -1,12 +1,11 @@
 package com.company;
 
 public abstract class Mode {
-    private String[] OperatorArray = {"+","-","*","/"};
-    private String operator;
-    private int num1;
-    private int num2;
+    protected String[] OperatorArray = {"+","-","*","/"};
+    protected String operator;
+    protected int num1;
+    protected int num2;
 
     public abstract void setOperator();
     public abstract void  randomNum();
-
 }
