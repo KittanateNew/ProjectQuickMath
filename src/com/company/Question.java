@@ -24,7 +24,7 @@ public class Question {
     }
 
     public void setQuiz(int n1, String operator, int n2){
-        quiz = n1 + " " + operator + " " + n2 + " = ";
+        quiz = n1 + " " + operator + " " + n2 + " = ?";
     }
 
     public String getQuiz(){
