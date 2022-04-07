@@ -30,4 +30,23 @@ public class Question {
     public String getQuiz(){
         return quiz;
     }
+
+    public void addChoice(){
+
+    }
+
+    public Boolean checkAnswer(String response){
+        return Integer.parseInt(response) == answer;
+    }
+
+    //ไม่แน่ใจ skip()
+    public void skip(){
+        if (skipCount > 0){
+            skipCount--;
+            score--;
+            //ให้เปลี่ยนข้อ
+        } else {
+            //เปลี่ยนข้อ
+        }
+    }
 }
