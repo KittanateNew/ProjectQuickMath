@@ -20,6 +20,6 @@ public class Menu extends JFrame{
     public static void main(String[] args){
         JFrame frame = new Menu("Quick Math");
         frame.setSize(650,450);
-        System.out.println("new");
+        System.out.println("New");
     }
 }
