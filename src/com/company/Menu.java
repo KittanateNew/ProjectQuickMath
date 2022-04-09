@@ -8,7 +8,6 @@ import javax.swing.plaf.IconUIResource;
 public class Menu extends JFrame{
     private JPanel MainMenu;
     private JLabel Title;
-    private JLabel Title2;
 
     public Menu(String title){
         super(title);
