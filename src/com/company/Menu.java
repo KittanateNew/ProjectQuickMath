@@ -7,6 +7,7 @@ import javax.swing.plaf.IconUIResource;
 
 public class Menu extends JFrame{
     private JPanel MainMenu;
+    private JLabel Title;
 
     public Menu(String title){
         super(title);
@@ -20,5 +21,6 @@ public class Menu extends JFrame{
     public static void main(String[] args){
         JFrame frame = new Menu("Quick Math");
         frame.setSize(650,450);
+
     }
 }
