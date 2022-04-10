@@ -2,7 +2,7 @@ package com.company;
 
 import javax.swing.*;
 
-public class mainGame {
+public class mainGame extends JFrame {
     private JPanel MainGame;
     private JLabel timer;
     private JLabel Question;
