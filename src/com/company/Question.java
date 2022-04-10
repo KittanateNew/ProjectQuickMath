@@ -3,16 +3,22 @@ package com.company;
 import com.company.mode.Mode;
 
 public class Question {
-    private static int skipCount = 3;
-    private static int score = 0;
-    private int answer;
-    private String quiz;
+    private int skipCount = 3;
+    private int score = 0;
+    private int answer = 0;
+    private String quiz = "";
+    private Mode mode;
 
     public Question(Mode mode){
-        mode.setOperator();
-        mode.randomNum();
-        setQuiz(mode.getNum1(), mode.getOperator(), mode.getNum2());
-        setAnswer(mode.getNum1(), mode.getOperator(), mode.getNum2());
+        this.mode = mode;
+    }
+
+    public void nextQuiz(){
+
+    }
+
+    public String getQuiz(){
+        return quiz;
     }
 
     public void setAnswer(int n1, String operator, int n2){
@@ -26,14 +32,6 @@ public class Question {
 
     public int getAnswer(){
         return answer;
-    }
-
-    public void setQuiz(int n1, String operator, int n2){
-        quiz = n1 + " " + operator + " " + n2 + " = ?";
-    }
-
-    public String getQuiz(){
-        return quiz;
     }
 
     public void addChoice(){
