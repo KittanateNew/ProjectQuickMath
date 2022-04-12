@@ -26,14 +26,15 @@ public class Normal extends Mode{
             num2 = (int) (Math.random()*199)-99;
         } else {
             int rnd = new Random().nextInt(notPrime.length) ;
-            num1 = notPrime[rnd] * NegOrPos[new Random().nextInt(2)];
+            num1 = notPrime[rnd] ;
             ArrayList<Integer> factors = new ArrayList<Integer>();
-            for (int i = 1; i <= num1; i++) {
+            for (int i = 2; i <= num1; i++) {
                 if (num1 % i == 0){
                     factors.add(i);
                 }
             }
             int rnd2 = new Random().nextInt(factors.size());
+            num1 *= NegOrPos[new Random().nextInt(2)];
             num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(2)];
 
         }
