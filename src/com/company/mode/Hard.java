@@ -77,7 +77,7 @@ public class Hard extends Mode{
                     num2 = (int) (Math.random() * 1999) - 999;
                 } else {
                     int rnd = new Random().nextInt(notPrime.length);
-                    num1 = notPrime[rnd] * NegOrPos[new Random().nextInt(NegOrPos.length)];
+                    num1 = notPrime[rnd] * NegOrPos[new Random().nextInt(2)];
                     ArrayList<Integer> factors = new ArrayList<Integer>();
                     for (int i = 1; i <= num1; i++) {
                         if (num1 % i == 0) {
@@ -85,7 +85,7 @@ public class Hard extends Mode{
                         }
                     }
                     int rnd2 = new Random().nextInt(factors.size());
-                    num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(NegOrPos.length)];
+                    num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(2)];
                 }
                 break;
             case "!":
@@ -98,11 +98,11 @@ public class Hard extends Mode{
                 } else {
                     num1 = new Random().nextInt(8) + 2;
                     num2 = new Random().nextInt(num1 - 1) + 2;
-                    num2 *= NegOrPos[new Random().nextInt(NegOrPos.length)];
+                    num2 *= NegOrPos[new Random().nextInt(2)];
                 }
                 break;
             case "^":
-                num1 = (new Random().nextInt(4) + 2) * NegOrPos[new Random().nextInt(NegOrPos.length)];
+                num1 = (new Random().nextInt(4) + 2) * NegOrPos[new Random().nextInt(2)];
                 exponent = new Random().nextInt(4) + 2;
                 if (operator.equals("+") || operator.equals("-")) {
                     num2 = (int) (Math.random() * 1999) - 999;
@@ -116,7 +116,7 @@ public class Hard extends Mode{
                         }
                     }
                     int rnd2 = new Random().nextInt(factors.size());
-                    num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(NegOrPos.length)];
+                    num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(2)];
                 }
                 break;
         }

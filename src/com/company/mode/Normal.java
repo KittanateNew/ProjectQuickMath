@@ -25,8 +25,8 @@ public class Normal extends Mode{
             num1 = (int) (Math.random()*199)-99;
             num2 = (int) (Math.random()*199)-99;
         } else {
-            int rnd = new Random().nextInt(notPrime.length);
-            num1 = notPrime[rnd] * NegOrPos[new Random().nextInt(NegOrPos.length)];
+            int rnd = new Random().nextInt(notPrime.length) ;
+            num1 = notPrime[rnd] * NegOrPos[new Random().nextInt(2)];
             ArrayList<Integer> factors = new ArrayList<Integer>();
             for (int i = 1; i <= num1; i++) {
                 if (num1 % i == 0){
@@ -34,7 +34,7 @@ public class Normal extends Mode{
                 }
             }
             int rnd2 = new Random().nextInt(factors.size());
-            num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(NegOrPos.length)];
+            num2 = factors.get(rnd2) * NegOrPos[new Random().nextInt(2)];
 
         }
     }

@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.mode.Easy;
+import com.company.mode.Hard;
+import com.company.mode.Normal;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +25,27 @@ public class modeSelect extends JFrame{
         easyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
+                JFrame frame3 = new mainGame("Quick Math", new Question(new Easy()));
+                frame3.setSize(850,650);
+            }
+        });
 
+        normalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                JFrame frame3 = new mainGame("Quick Math", new Question(new Normal()));
+                frame3.setSize(850,650);
+            }
+        });
+
+        hardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                JFrame frame3 = new mainGame("Quick Math", new Question(new Hard()));
+                frame3.setSize(850,650);
             }
         });
     }

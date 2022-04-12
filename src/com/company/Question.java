@@ -3,6 +3,7 @@ package com.company;
 import com.company.mode.Hard;
 import com.company.mode.Mode;
 
+import javax.swing.*;
 import java.util.Random;
 
 public class Question {
@@ -16,7 +17,7 @@ public class Question {
         this.mode = mode;
     }
 
-    public void nextQuiz() {
+    public void nextQuiz(JLabel qLabel, JButton button1, JButton button2, JButton button3, JButton button4) {
         mode.randomOperator();
         mode.random2Num();
         if (mode instanceof Hard && !(((Hard) mode).getOperator2().equals("none"))) {
@@ -30,9 +31,8 @@ public class Question {
             quiz = mode.getNum1() + " " + mode.getOperator() + " " + mode.getNum2() + " = ?";
         }
         setAnswer(mode.getNum1(), mode.getOperator(), mode.getNum2());
-        mainGame.setQuestion(quiz);
-        randomChoice();
-        mainGame.setScoreLabel(score);
+        qLabel.setText(quiz);
+        randomChoice(button1, button2, button3, button4);
     }
 
     public String getQuiz() {
@@ -70,31 +70,31 @@ public class Question {
         }
     }
 
-    public int getAnswer () {
+    public int getAnswer() {
         return answer;
     }
 
-    public void randomChoice () {
-        int ansChoice = new Random().nextInt(3) + 1;
+    public void randomChoice (JButton button1, JButton button2, JButton button3, JButton button4) {
+        int ansChoice = new Random().nextInt(4)+1;
         int[] Choice = new int[4];
         int[] NegOrPos = {-1,1};
         switch (ansChoice) {
-            case 1 -> mainGame.setButton1Value(answer);
-            case 2 -> mainGame.setButton2Value(answer);
-            case 3 -> mainGame.setButton3Value(answer);
-            case 4 -> mainGame.setButton4Value(answer);
+            case 1 -> button1.setText(String.valueOf(answer));
+            case 2 -> button2.setText(String.valueOf(answer));
+            case 3 -> button3.setText(String.valueOf(answer));
+            case 4 -> button4.setText(String.valueOf(answer));
         }
         switch (mode.getOperator()) {
             case "+":
             case "-":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i] = answer + (new Random().nextInt(20) + 1) * NegOrPos[new Random().nextInt(2)];
+                        Choice[i-1] = answer + (new Random().nextInt(20)+1) * NegOrPos[new Random().nextInt(2)];
                         switch (i) {
-                            case 1 -> mainGame.setButton1Value(Choice[i]);
-                            case 2 -> mainGame.setButton2Value(Choice[i]);
-                            case 3 -> mainGame.setButton3Value(Choice[i]);
-                            case 4 -> mainGame.setButton4Value(Choice[i]);
+                            case 1 -> button1.setText(String.valueOf(Choice[i-1]));
+                            case 2 -> button2.setText(String.valueOf(Choice[i-1]));
+                            case 3 -> button3.setText(String.valueOf(Choice[i-1]));
+                            case 4 -> button4.setText(String.valueOf(Choice[i-1]));
                         }
                     }
                 }
@@ -102,12 +102,12 @@ public class Question {
             case "*":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                        Choice[i-1] = answer + (new Random().nextInt(100)+1) * NegOrPos[new Random().nextInt(2)];
                         switch (i) {
-                            case 1 -> mainGame.setButton1Value(Choice[i]);
-                            case 2 -> mainGame.setButton2Value(Choice[i]);
-                            case 3 -> mainGame.setButton3Value(Choice[i]);
-                            case 4 -> mainGame.setButton4Value(Choice[i]);
+                            case 1 -> button1.setText(String.valueOf(Choice[i-1]));
+                            case 2 -> button2.setText(String.valueOf(Choice[i-1]));
+                            case 3 -> button3.setText(String.valueOf(Choice[i-1]));
+                            case 4 -> button4.setText(String.valueOf(Choice[i-1]));
                         }
                     }
                 }
@@ -115,12 +115,12 @@ public class Question {
             case "/":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i] = answer + (new Random().nextInt(50) + 1) * NegOrPos[new Random().nextInt(2)];
+                        Choice[i-1] = answer + (new Random().nextInt(50)+1) * NegOrPos[new Random().nextInt(2)];
                         switch (i) {
-                            case 1 -> mainGame.setButton1Value(Choice[i]);
-                            case 2 -> mainGame.setButton2Value(Choice[i]);
-                            case 3 -> mainGame.setButton3Value(Choice[i]);
-                            case 4 -> mainGame.setButton4Value(Choice[i]);
+                            case 1 -> button1.setText(String.valueOf(Choice[i-1]));
+                            case 2 -> button2.setText(String.valueOf(Choice[i-1]));
+                            case 3 -> button3.setText(String.valueOf(Choice[i-1]));
+                            case 4 -> button4.setText(String.valueOf(Choice[i-1]));
                         }
                     }
                 }
@@ -128,26 +128,32 @@ public class Question {
         }
     }
 
-    public void checkAnswer (String response){
+    public void checkAnswer (String response, JLabel scoreLabel){
         if (Integer.parseInt(response) == answer) {
             score++;
         } else {
             score--;
         }
-        nextQuiz();
+        scoreLabel.setText("Score: " + score);
+        //nextQuiz(); ทำที่ปุ่ม
     }
 
     //ไม่แน่ใจ skip()
-    public void skip () {
+    public void skip (JLabel label) {
         if (skipCount > 0) {
             skipCount--;
-            nextQuiz();
+            //nextQuiz(); ทำที่ปุ่ม
+            label.setText(skipCount + " skip remain");
         } else {
-            mainGame.setNoSkipLabel("You already used all the skip");
+            label.setText("You already used all the skip");
         }
     }
 
-    public int factorial ( int n){
+    public int getSkipCount() {
+        return skipCount;
+    }
+
+    public int factorial (int n){
         if (n == 0)
             return 1;
         else
