@@ -143,7 +143,7 @@ public class Question {
             skipCount--;
             nextQuiz();
         } else {
-            //ให้ขึ้น You already use all skip.
+            mainGame.setNoSkipLabel("You already used all the skip");
         }
     }
 
@@ -152,5 +152,9 @@ public class Question {
             return 1;
         else
             return (n * factorial(n - 1));
+    }
+
+    public void endGame(){
+        //ไว้ก่อนไม่แน่ใจว่าต้องอยู่ mainGame class รึเปล่า
     }
 }

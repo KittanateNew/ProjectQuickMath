@@ -12,6 +12,7 @@ public class mainGame extends JFrame {
     private static JButton choice2;
     private static JButton choice4;
     private static JLabel scoreLabel;
+    private static JLabel noSkipLabel;
     private JButton skipButton;
 
     public static void setButton1Value(int value) {
@@ -33,5 +34,9 @@ public class mainGame extends JFrame {
 
     public static void setScoreLabel(int score) {
         scoreLabel.setText(String.valueOf(score));
+    }
+
+    public static void setNoSkipLabel(String text){
+        noSkipLabel.setText(text);
     }
 }
