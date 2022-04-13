@@ -4,11 +4,10 @@ import javax.swing.*;
 
 public class endGame {
     private JPanel EndGame;
-    private JLabel timeOut;
-    private JLabel Star1;
-    private JLabel totalScore;
+    private JButton playAgainButton;
+    private JButton giveUpButton;
+    private JLabel totalScoreLabel;
     private JLabel Star2;
+    private JLabel Star1;
     private JLabel Star3;
-    private JButton PlayAgain;
-    private JButton GiveUp;
 }
