@@ -7,6 +7,7 @@ import com.company.mode.Normal;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class endGame extends JFrame{
     private JPanel EndGame;
@@ -20,7 +21,6 @@ public class endGame extends JFrame{
     private static int bestScoreEasy = 0;
     private static int bestScoreNormal = 0;
     private static int bestScoreHard = 0;
-
     private Question q;
 
     public endGame(String title, Question q){
@@ -31,6 +31,7 @@ public class endGame extends JFrame{
         this.setContentPane(EndGame);
         this.setVisible(true);
         this.pack();
+        final Icon wStar = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Resources/whiteStar.gif")));
 
         totalScoreLabel.setText("Total Score : "+q.getScore());
 
@@ -58,14 +59,14 @@ public class endGame extends JFrame{
         }
 
         if ( q.getScore() == 0){
-            Star1.setIcon(null);
-            Star2.setIcon(null);
-            Star3.setIcon(null);
+            Star1.setIcon(wStar);
+            Star2.setIcon(wStar);
+            Star3.setIcon(wStar);
         }else if( q.getScore() < 2){
-            Star2.setIcon(null);
-            Star3.setIcon(null);
+            Star2.setIcon(wStar);
+            Star3.setIcon(wStar);
         }else if( q.getScore() <3){
-            Star3.setIcon(null);
+            Star3.setIcon(wStar);
         }
 
         playAgainButton.addActionListener(new ActionListener() {
