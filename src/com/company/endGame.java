@@ -57,8 +57,15 @@ public class endGame extends JFrame{
             }
         }
 
-        if ( q.getScore() > 2){
-
+        if ( q.getScore() == 0){
+            Star1.setIcon(null);
+            Star2.setIcon(null);
+            Star3.setIcon(null);
+        }else if( q.getScore() < 2){
+            Star2.setIcon(null);
+            Star3.setIcon(null);
+        }else if( q.getScore() <3){
+            Star3.setIcon(null);
         }
 
         playAgainButton.addActionListener(new ActionListener() {
