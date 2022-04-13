@@ -12,13 +12,14 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="625f1" class="javax.swing.JLabel" binding="timer">
+      <component id="625f1" class="javax.swing.JLabel" binding="timerLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <alignmentY value="0.0"/>
-          <font name="JetBrains Mono" size="20" style="0"/>
+          <font name="JetBrains Mono" size="26" style="0"/>
+          <foreground color="-16777216"/>
           <text value="Time 00 : 00"/>
         </properties>
       </component>
@@ -27,7 +28,8 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="JetBrains Mono" size="20" style="0"/>
+          <font name="JetBrains Mono" size="26" style="0"/>
+          <foreground color="-16777216"/>
           <text value="score : 00"/>
         </properties>
       </component>
@@ -37,6 +39,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono" size="36" style="1"/>
+          <foreground color="-16777216"/>
           <text value=".......  ....   ....... = ?"/>
         </properties>
       </component>
@@ -82,6 +85,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono" size="18" style="0"/>
+          <foreground color="-16777216"/>
           <text value="&quot;3 skip remain&quot;"/>
         </properties>
       </component>

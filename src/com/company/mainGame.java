@@ -6,10 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class mainGame extends JFrame {
     private JPanel MainGame;
-    private JLabel timer;
+    private JLabel timerLabel;
     private JLabel Question;
     private JButton choice1;
     private JButton choice3;
@@ -20,6 +21,11 @@ public class mainGame extends JFrame {
     private JButton skipButton;
     private Question q;
 
+   private int second = 0;
+   private int minute = 1;
+   private DecimalFormat dFormat = new DecimalFormat("00");
+   private Timer timeCount;
+
     public mainGame(String title, Question q){
         super(title);
         this.q = q;
@@ -28,6 +34,11 @@ public class mainGame extends JFrame {
         this.setContentPane(MainGame);
         this.setVisible(true);
         this.pack();
+
+        timerLabel.setText("Time 01:00");
+        countdownTimer();
+        timeCount.start();
+
         skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,30 +80,31 @@ public class mainGame extends JFrame {
                 q.nextQuiz(Question, choice1, choice2, choice3, choice4);
             }
         });
+
     }
 
-    public void setButton1Value(int value) {
-        choice1.setText(String.valueOf(value));
-    }
-    public void setButton2Value(int value){
-        choice2.setText(String.valueOf(value));
-    }
-    public void setButton3Value(int value){
-        choice3.setText(String.valueOf(value));
-    }
-    public void setButton4Value(int value){
-        choice4.setText(String.valueOf(value));
+    public void countdownTimer() {
+        timeCount = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                second--;
+                String ddSecond = dFormat.format(second);
+                String ddMinute = dFormat.format(minute);
+                timerLabel.setText("Time " + ddMinute + ":" + ddSecond);
+
+                if (second == -1) {
+                    second = 59;
+                    minute--;
+                    ddSecond = dFormat.format(second);
+                    ddMinute = dFormat.format(minute);
+                    timerLabel.setText("Time " + ddMinute + ":" + ddSecond);
+                }
+
+                if (minute == 0 && second == 0) {
+                    timeCount.stop();
+                }
+            }
+        });
     }
 
-    public void setQuestion(String quiz) {
-        Question.setText(quiz);
-    }
 
-    public void setScoreLabel(int score) {
-        scoreLabel.setText("Score: " + score);
-    }
-
-    public void setNoSkipLabel(String text){
-        noSkipLabel.setText(text);
-    }
 }
