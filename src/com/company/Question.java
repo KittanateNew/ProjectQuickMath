@@ -160,7 +160,11 @@ public class Question {
             return (n * factorial(n - 1));
     }
 
-    public void endGame(){
-        //ไว้ก่อนไม่แน่ใจว่าต้องอยู่ mainGame class รึเปล่า
+    public Mode getMode(){
+        return mode;
+    }
+
+    public int getScore(){
+        return score;
     }
 }

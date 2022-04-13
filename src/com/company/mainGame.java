@@ -21,8 +21,8 @@ public class mainGame extends JFrame {
     private JButton skipButton;
     private Question q;
 
-   private int second = 0;
-   private int minute = 1;
+   private int second = 30;
+   private int minute = 0;
    private DecimalFormat dFormat = new DecimalFormat("00");
    private Timer timeCount;
 
@@ -35,7 +35,7 @@ public class mainGame extends JFrame {
         this.setVisible(true);
         this.pack();
 
-        timerLabel.setText("Time 01:00");
+        timerLabel.setText("Time 00:30");
         countdownTimer();
         timeCount.start();
 
@@ -101,6 +101,9 @@ public class mainGame extends JFrame {
 
                 if (minute == 0 && second == 0) {
                     timeCount.stop();
+                    dispose();
+                    JFrame frame4 = new endGame("Quick Math", q);
+                    frame4.setSize(850,650);
                 }
             }
         });
