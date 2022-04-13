@@ -8,6 +8,7 @@
     <properties>
       <alignmentX value="0.5"/>
       <alignmentY value="0.5"/>
+      <background color="-4144960"/>
     </properties>
     <border type="none"/>
     <children>
