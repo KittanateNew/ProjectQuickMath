@@ -6,7 +6,6 @@ public class Easy extends Mode {
     @Override
     public void randomOperator() {
         operator = OperatorArray[(int)new Random().nextInt(3)];
-        //ไม่แน่ใจ
     }
 
     @Override

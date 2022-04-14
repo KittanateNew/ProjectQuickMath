@@ -144,10 +144,8 @@ public class Question {
             score--;
         }
         scoreLabel.setText("Score: " + score);
-        //nextQuiz(); ทำที่ปุ่ม
     }
 
-    //ไม่แน่ใจ skip()
     public void skip (JLabel label) {
         if (skipCount > 0) {
             skipCount--;

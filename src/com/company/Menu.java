@@ -1,12 +1,8 @@
 package com.company;
 
-import com.sun.tools.javac.Main;
-
 import javax.swing.*;
-import javax.swing.plaf.IconUIResource;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 public class Menu extends JFrame{
     private JPanel MainMenu;

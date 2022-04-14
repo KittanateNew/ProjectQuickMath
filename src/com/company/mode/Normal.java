@@ -12,7 +12,6 @@ public class Normal extends Mode{
     @Override
     public void randomOperator() {
         operator = OperatorArray[(int)new Random().nextInt(4)];
-        //ไม่แน่ใจ
     }
 
     @Override
