@@ -20,15 +20,24 @@ public class Question {
     public void nextQuiz(JLabel qLabel, JButton button1, JButton button2, JButton button3, JButton button4) {
         mode.randomOperator();
         mode.random2Num();
+        String num1 = "";
+        String num2 = "";
+
+        if (mode.getNum1() < 0) num1 = "( "+mode.getNum1()+" )";
+        else num1 = String.valueOf(mode.getNum1());
+
+        if (mode.getNum2() < 0) num2 = "( "+mode.getNum2()+" )";
+        else num2 = String.valueOf(mode.getNum2());
+
         if (mode instanceof Hard && !(((Hard) mode).getOperator2().equals("none"))) {
             if (((Hard) mode).getOperator2().equals("!")){
-                quiz = mode.getNum1() + "! " + mode.getOperator() + " " + mode.getNum2() + " = ?";
+                quiz = "( " + num1 + "! " + " )" + " " + mode.getOperator() + " " + num2 + " = ?";
             } else {
-                quiz = mode.getNum1() + ((Hard) mode).getOperator2() + ((Hard) mode).getExponent() + " " +
-                        mode.getOperator() + " " + mode.getNum2() + " = ?";
+                quiz = "( " + num1  + ((Hard) mode).getOperator2() + ((Hard) mode).getExponent() + " )" + " " +
+                        mode.getOperator() + " " + num2 + " = ?";
             }
         } else {
-            quiz = mode.getNum1() + " " + mode.getOperator() + " " + mode.getNum2() + " = ?";
+            quiz = num1 + " " + mode.getOperator() + " " + num2 + " = ?";
         }
         setAnswer(mode.getNum1(), mode.getOperator(), mode.getNum2());
         qLabel.setText(quiz);

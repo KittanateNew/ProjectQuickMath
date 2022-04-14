@@ -21,8 +21,8 @@ public class mainGame extends JFrame {
     private JButton skipButton;
     private Question q;
 
-   private int second = 30;
-   private int minute = 0;
+   private int second = 0;
+   private int minute = 1;
    private DecimalFormat dFormat = new DecimalFormat("00");
    private Timer timeCount;
 
@@ -35,7 +35,7 @@ public class mainGame extends JFrame {
         this.setVisible(true);
         this.pack();
 
-        timerLabel.setText("Time 00:30");
+        timerLabel.setText("Time 01:00");
         countdownTimer();
         timeCount.start();
 
