@@ -73,8 +73,8 @@ public class endGame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                JFrame maingameFrame = new mainGame("Quick Math", new Question(q.getMode()));
-                maingameFrame.setSize(850,650);
+                JFrame mainGameFrame = new mainGame("Quick Math", new Question(q.getMode()));
+                mainGameFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
 
@@ -83,7 +83,7 @@ public class endGame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 JFrame menuFrame = new Menu("Quick Math");
-                menuFrame.setSize(850,650);
+                menuFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
     }

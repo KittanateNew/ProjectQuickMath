@@ -30,7 +30,7 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 JFrame frame2 = new modeSelect("Quick Math");
-                frame2.setSize(850,650);
+                frame2.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
         exitButton.addActionListener(new ActionListener() {

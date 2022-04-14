@@ -103,7 +103,7 @@ public class mainGame extends JFrame {
                     timeCount.stop();
                     dispose();
                     JFrame frame4 = new endGame("Quick Math", q);
-                    frame4.setSize(850,650);
+                    frame4.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 }
             }
         });
