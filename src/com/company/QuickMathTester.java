@@ -10,7 +10,7 @@ public class QuickMathTester extends Menu{
     public static void main(String[] args){
         JFrame frame = new Menu("Quick Math");
         frame.setSize(850,650);
-        frame.add(Menu.backGround);
+        //frame.add(Menu.backGround);
     }
 
 }

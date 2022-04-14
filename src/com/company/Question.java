@@ -31,7 +31,7 @@ public class Question {
 
         if (mode instanceof Hard && !(((Hard) mode).getOperator2().equals("none"))) {
             if (((Hard) mode).getOperator2().equals("!")){
-                quiz = "( " + num1 + "! " + " )" + " " + mode.getOperator() + " " + num2 + " = ?";
+                quiz = "( " + num1 + "!" + " )" + " " + mode.getOperator() + " " + num2 + " = ?";
             } else {
                 quiz = "( " + num1  + ((Hard) mode).getOperator2() + ((Hard) mode).getExponent() + " )" + " " +
                         mode.getOperator() + " " + num2 + " = ?";

@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.plaf.IconUIResource;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Menu extends JFrame{
     private JPanel MainMenu;
@@ -22,9 +23,11 @@ public class Menu extends JFrame{
         this.setVisible(true);
         this.pack();
 
-        Icon backgroundIcon = new ImageIcon(getClass().getResource("/Resources/p1.jpeg"));
+        /*
+        Icon backgroundIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Resources/p1.jpeg")));
         backGround = new JLabel(backgroundIcon);
-        backGround.setSize(850,650);
+        backGround.setSize(850,640);
+        */
 
         playButton.addActionListener(new ActionListener() {
             @Override
