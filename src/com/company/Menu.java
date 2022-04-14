@@ -12,6 +12,7 @@ public class Menu extends JFrame{
     private JLabel GameName;
     private JButton playButton;
     private JButton exitButton;
+    protected static JLabel backGround;
 
     public Menu(String title){
         super(title);
@@ -20,6 +21,11 @@ public class Menu extends JFrame{
         this.setContentPane(MainMenu);
         this.setVisible(true);
         this.pack();
+
+        Icon backgroundIcon = new ImageIcon(getClass().getResource("/Resources/p1.jpeg"));
+        backGround = new JLabel(backgroundIcon);
+        backGround.setSize(850,650);
+
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
