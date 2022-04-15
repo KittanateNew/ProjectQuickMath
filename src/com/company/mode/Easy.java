@@ -11,8 +11,8 @@ public class Easy extends Mode {
     @Override
     public void random2Num() {
         if (operator.equals("+") || operator.equals("-")) {
-            num1 = (int) (Math.random()*199)-99;
-            num2 = (int) (Math.random()*199)-99;
+            num1 = (int) (Math.random()*19)-9;
+            num2 = (int) (Math.random()*19)-9;
         } else {
             num1 = (int) (Math.random()*19)-9;
             num2 = (int) (Math.random()*19)-9;
