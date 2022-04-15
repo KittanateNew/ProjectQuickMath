@@ -18,6 +18,7 @@ public class endGame extends JFrame{
     private JLabel Star1;
     private JLabel Star3;
     private JLabel bestScoreLabel;
+    private JLabel timeOutLabel;
     private static int bestScoreEasy = 0;
     private static int bestScoreNormal = 0;
     private static int bestScoreHard = 0;
