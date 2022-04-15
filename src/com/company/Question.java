@@ -87,6 +87,7 @@ public class Question {
         int ansChoice = new Random().nextInt(4)+1;
         int[] Choice = new int[4];
         int[] NegOrPos = {-1,1};
+        int temp = 0;
         switch (ansChoice) {
             case 1 -> button1.setText(String.valueOf(answer));
             case 2 -> button2.setText(String.valueOf(answer));
@@ -99,12 +100,22 @@ public class Question {
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
                         if (Math.abs(answer) > 1000){
-                            Choice[i - 1] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         } else if (Math.abs(answer) > 300){
-                            Choice[i - 1] = answer + (new Random().nextInt(50) + 1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(50) + 1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(50) + 1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         } else {
-                            Choice[i - 1] = answer + (new Random().nextInt(20) + 1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(20) + 1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(20) + 1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         }
+                        Choice [i-1 ]= temp;
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
                             case 2 -> button2.setText(String.valueOf(Choice[i-1]));
@@ -118,12 +129,22 @@ public class Question {
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
                         if (Math.abs(answer) > 10000){
-                            Choice[i-1] = answer + (new Random().nextInt(1000)+1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(1000)+1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(1000)+1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         } else if (Math.abs(answer) > 100){
-                            Choice[i-1] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(100)+1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         } else {
-                            Choice[i-1] = answer + (new Random().nextInt(25) + 1) * NegOrPos[new Random().nextInt(2)];
+                            temp = answer + (new Random().nextInt(25) + 1) * NegOrPos[new Random().nextInt(2)];
+                            while (this.checkChoice(Choice,temp)){
+                                temp = answer + (new Random().nextInt(25)+1) * NegOrPos[new Random().nextInt(2)];
+                            }
                         }
+                        Choice[i-1] = temp;
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
                             case 2 -> button2.setText(String.valueOf(Choice[i-1]));
@@ -136,7 +157,11 @@ public class Question {
             case "/":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i-1] = answer + (new Random().nextInt(25)+1) * NegOrPos[new Random().nextInt(2)];
+                        temp = answer + (new Random().nextInt(25)+1) * NegOrPos[new Random().nextInt(2)];
+                        while (this.checkChoice(Choice,temp)){
+                            temp = answer + (new Random().nextInt(25)+1) * NegOrPos[new Random().nextInt(2)];
+                        }
+                        Choice[ i - 1 ] = temp;
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
                             case 2 -> button2.setText(String.valueOf(Choice[i-1]));
@@ -185,5 +210,14 @@ public class Question {
 
     public int getScore(){
         return score;
+    }
+
+    public boolean checkChoice(int[] choice, int temp){
+        boolean check = false;
+        for ( int eachChoice : choice){
+            if ( eachChoice == temp)
+                check = true;
+        }
+        return  check;
     }
 }
