@@ -98,7 +98,13 @@ public class Question {
             case "-":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i-1] = answer + (new Random().nextInt(20)+1) * NegOrPos[new Random().nextInt(2)];
+                        if (Math.abs(answer) > 1000){
+                            Choice[i - 1] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                        } else if (Math.abs(answer) > 300){
+                            Choice[i - 1] = answer + (new Random().nextInt(50) + 1) * NegOrPos[new Random().nextInt(2)];
+                        } else {
+                            Choice[i - 1] = answer + (new Random().nextInt(20) + 1) * NegOrPos[new Random().nextInt(2)];
+                        }
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
                             case 2 -> button2.setText(String.valueOf(Choice[i-1]));
@@ -113,10 +119,10 @@ public class Question {
                     if (i != ansChoice) {
                         if (Math.abs(answer) > 10000){
                             Choice[i-1] = answer + (new Random().nextInt(1000)+1) * NegOrPos[new Random().nextInt(2)];
-                        } else if (Math.abs(answer) > 1000){
-                            Choice[i - 1] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
+                        } else if (Math.abs(answer) > 100){
+                            Choice[i-1] = answer + (new Random().nextInt(100) + 1) * NegOrPos[new Random().nextInt(2)];
                         } else {
-                            Choice[i - 1] = answer + (new Random().nextInt(25) + 1) * NegOrPos[new Random().nextInt(2)];
+                            Choice[i-1] = answer + (new Random().nextInt(25) + 1) * NegOrPos[new Random().nextInt(2)];
                         }
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
@@ -130,7 +136,7 @@ public class Question {
             case "/":
                 for (int i = 1; i < 5; i++) {
                     if (i != ansChoice) {
-                        Choice[i-1] = answer + (new Random().nextInt(50)+1) * NegOrPos[new Random().nextInt(2)];
+                        Choice[i-1] = answer + (new Random().nextInt(25)+1) * NegOrPos[new Random().nextInt(2)];
                         switch (i) {
                             case 1 -> button1.setText(String.valueOf(Choice[i-1]));
                             case 2 -> button2.setText(String.valueOf(Choice[i-1]));
