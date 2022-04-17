@@ -8,6 +8,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class endGame extends JFrame{
     private JPanel EndGame;
@@ -35,6 +41,18 @@ public class endGame extends JFrame{
         final Icon wStar = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Resources/whiteStar.gif")));
 
         totalScoreLabel.setText("Total Score : "+q.getScore());
+        try{
+            File scoreFile = new File("src\\BestScoreInfo.txt");
+            Scanner scoreReader = new Scanner(scoreFile);
+            int easyData = Integer.parseInt(scoreReader.nextLine());
+            bestScoreEasy = easyData;
+            int normalData = Integer.parseInt(scoreReader.nextLine());
+            bestScoreNormal = normalData;
+            int hardData = Integer.parseInt(scoreReader.nextLine());
+            bestScoreHard = hardData;
+        } catch (FileNotFoundException e){
+
+        }
 
         if (q.getMode() instanceof Easy){
             if ( q.getScore() > bestScoreEasy){
@@ -57,6 +75,18 @@ public class endGame extends JFrame{
             }else{
                 bestScoreLabel.setText("Best Record : "+ bestScoreHard);
             }
+        }
+
+
+        try{
+            FileWriter fWriter = new FileWriter("src\\BestScoreInfo.txt", false);
+            PrintWriter pWriter = new PrintWriter(fWriter);
+            pWriter.println(bestScoreEasy);
+            pWriter.println(bestScoreNormal);
+            pWriter.println(bestScoreHard);
+            pWriter.close();
+        } catch (IOException e) {
+
         }
 
         if ( q.getScore() == 0){
